@@ -1,0 +1,115 @@
+body {
+    margin: 0px;
+    background-image: url('C:\Users\henry\Downloads\Data Collecting Landing Page\landing-page\src\assets\pngtree-close-up-view-of-a-black-crocodile-skin-pattern-image_13121398.jpg');
+    background-size: cover;
+    
+   
+}
+
+.carousel {
+    background: white;
+    height: 50%;
+    margin: 0px;
+}
+
+
+.logo {
+    color: white;
+
+    font-size: xx-large;
+    margin: auto;
+    text-align: center;
+    text-shadow: 
+    -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000; /* Outline */
+}
+
+.submitEmail {
+    display: flex; /* Add Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: white;
+    width: 500px;
+    height: 50px;
+    border: 3px solid;
+    border-color: darkgrey;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.submitEmail > input {
+    width: 95%;
+    outline: none;
+    border: 2px solid white;
+    font-size: xx-large;
+    text-align: center; /* Center text horizontally */
+}
+
+.buttonDiv {
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: auto;
+    margin-top: 100px;
+    background-color: black;
+    width: 200px;
+    height: 40px;
+    border: 2px solid;
+    border-color: white;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.buttonDiv h2 {
+    margin: 0; /* Remove default margin */
+}
+
+.successMessage{
+    color: white;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.footer {
+    margin: auto;
+    position: fixed; /* or position: absolute; */
+    bottom: 0;
+    width: 100%;
+    height: 250px;
+    background-color: white;
+    color: black;
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Space items evenly horizontally */
+    align-items: center; /* Center items vertically */
+    
+}
+
+.footer > div {
+    flex: 1; /* Distribute space equally among child divs */
+    background-color: black;
+    width: 50px;
+    height: 200px;
+    border: 3px solid darkgray;
+    margin: 10px;
+    position: relative; /* Ensure positioning of the image relative to its parent */
+}
+
+.images {
+    width: 100%; /* Make the image width 100% of its container */
+    height: 100%; /* Make the image height 100% of its container */
+    color: white;
+    object-fit: fill; /* Resize the image to cover the entire container while preserving aspect ratio */  
+    font-size: 1vw;  
+}
+
+.imageDiv {
+    padding: 10px;
+}
+
+

@@ -1,9 +1,8 @@
 body {
     margin: 0px;
-    background-image: url('C:\Users\henry\Downloads\Data Collecting Landing Page\landing-page\src\assets\pngtree-close-up-view-of-a-black-crocodile-skin-pattern-image_13121398.jpg');
+    background-image: url('landing-page\src\assets\pngtree-close-up-view-of-a-black-crocodile-skin-pattern-image_13121398.jpg');
     background-size: cover;
     
-   
 }
 
 .carousel {

@@ -54,6 +54,7 @@ const Home = () => {
 
                         setSuccessMessage("Your email was submitted successfully!")
                         
+                        //set this url to productURL which includes the aff link 
                         setTimeout(() => window.location.href = "https://www.asos.com", 1500);
 
                     }

@@ -7,8 +7,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" Component={Home}/>
-        <Route path="/:productId" Component={Home}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/:productId" element={<Home />} />
       </Routes>
     </Router>
   );

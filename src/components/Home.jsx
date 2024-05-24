@@ -248,11 +248,11 @@ const Home = () => {
             </div>
                 
             <div className="imageDiv">
-                <img className="images" src={`${base64Images[3]}`} />
+                <img className="images" src={`${base64Images[2]}`} />
             </div>
 
             <div className="imageDiv">
-                <img className="images" src={`${base64Images[4]}`} />
+                <img className="images" src={`${base64Images[3]}`} />
             </div>
 
         </div>

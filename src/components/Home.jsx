@@ -28,7 +28,8 @@ const Home = () => {
 
                     method: 'POST',
                     headers: {
-                        'Access-Control-Allow-Origin': 'http://localhost:4000', 
+                        //'Access-Control-Allow-Origin': 'http://localhost:4000', 
+                        'Access-Control-Allow-Origin': 'https://www.suavecollections.com',
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(emailAddress)
@@ -94,7 +95,8 @@ const Home = () => {
 
                     method: 'GET',
                     headers: {
-                        'Access-Control-Allow-Origin': 'http://localhost:4000'
+                        //'Access-Control-Allow-Origin': 'http://localhost:4000'
+                        'Access-Control-Allow-Origin': 'https://www.suavecollections.com'
                     }
 
                 });
@@ -170,7 +172,8 @@ const Home = () => {
 
                     method: 'GET',
                     headers: {
-                        'Access-Control-Allow-Origin': 'http://localhost:4000'
+                        //'Access-Control-Allow-Origin': 'http://localhost:4000'
+                        'Access-Control-Allow-Origin': 'https://www.suavecollections.com'
                     }
 
                 });

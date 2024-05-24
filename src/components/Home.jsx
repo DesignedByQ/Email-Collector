@@ -71,7 +71,7 @@ const Home = () => {
     }
 
 
-    const getImage = `http://localhost:9100/imagehost/getimage/${productId}`
+    const getImage = `https://image-host-je09.onrender.com/imagehost/getimage/${productId}` //`http://localhost:9100/imagehost/getimage/${productId}`
 
     const renderImage = (base64String) => {
           
@@ -128,8 +128,8 @@ const Home = () => {
 
     }, []);
 
-    const getAllImages = `http://localhost:9100/imagehost/getallimages`
-    //const getAllImages = `https://image-host-je09.onrender.com/imagehost/getallimages`
+    //const getAllImages = `http://localhost:9100/imagehost/getallimages`
+    const getAllImages = `https://image-host-je09.onrender.com/imagehost/getallimages`
 
     const renderImages = async (base64Strings) => {
         console.log("Base64 strings received:", base64Strings);

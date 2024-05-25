@@ -7,8 +7,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />  
-        <Route path=":productId" element={<Home />} />
+        <Route path="https://www.suavecollections.com" element={<Home />} />  
+        <Route path="https://www.suavecollections.com/:productId" element={<Home />} />
       </Routes>
     </Router>
   );

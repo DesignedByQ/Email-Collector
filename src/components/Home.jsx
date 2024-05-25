@@ -84,6 +84,12 @@ const Home = () => {
     useEffect(() => {
 
         console.log("I Only run once (When the component gets mounted)")
+
+        if (!productId) {
+            console.error("Product ID is undefined");
+            setIsError(true);
+            return;
+        }
         
         // Fetch the image based on the productId
         console.log("Fetching image for product ID:", productId);
@@ -123,6 +129,7 @@ const Home = () => {
 
                 setIsError(true);
                 console.log(error);
+                console.error(error);
 
             }
     
@@ -132,7 +139,9 @@ const Home = () => {
     
         getChosenImageFromDB();     
 
-    }, []);
+        
+
+    }, [productId]);
 
     //const getAllImages = `http://localhost:9100/imagehost/getallimages`
     const getAllImages = `https://image-host-je09.onrender.com/imagehost/getallimages`

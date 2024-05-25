@@ -82,59 +82,57 @@ const Home = () => {
 
     // onMount
     useEffect(() => {
+
         console.log("I Only run once (When the component gets mounted)")
-
-        if (productId) {
-            // Fetch the image based on the productId
-            console.log("Fetching image for product ID:", productId);
-
-            const getChosenImageFromDB = async () => {
-
-                setIsLoading(true);
-                setIsError(false);
         
-                try {
+        // Fetch the image based on the productId
+        console.log("Fetching image for product ID:", productId);
 
-                    const response = await fetch(getImage, {
+        const getChosenImageFromDB = async () => {
 
-                        method: 'GET',
-                        headers: {
-                            //'Access-Control-Allow-Origin': 'http://localhost:4000'
-                            'Access-Control-Allow-Origin': 'https://www.suavecollections.com'
-                        }
+            setIsLoading(true);
+            setIsError(false);
+    
+            try {
 
-                    });
-        
-                    if (!response.ok) {
+                const response = await fetch(getImage, {
 
-                        setIsError(true);
-
-                    } else {
-
-                        const blob = await response.blob();
-                        const imageUrl = URL.createObjectURL(blob);
-                        console.log(blob);
-                        console.log(imageUrl);
-                        renderImage(imageUrl)
-
+                    method: 'GET',
+                    headers: {
+                        //'Access-Control-Allow-Origin': 'http://localhost:4000'
+                        'Access-Control-Allow-Origin': 'https://www.suavecollections.com'
                     }
-        
-                } catch (error) {
+
+                });
+    
+                if (!response.ok) {
 
                     setIsError(true);
-                    console.log(error);
+
+                } else {
+
+                    const blob = await response.blob();
+                    const imageUrl = URL.createObjectURL(blob);
+                    console.log(blob);
+                    console.log(imageUrl);
+                    renderImage(imageUrl)
 
                 }
-        
-                setIsLoading(false);
+    
+            } catch (error) {
 
-            };
-        
-            getChosenImageFromDB();
+                setIsError(true);
+                console.log(error);
 
-        }
+            }
+    
+            setIsLoading(false);
 
-    }, [productId]);
+        };
+    
+        getChosenImageFromDB();     
+
+    }, []);
 
     //const getAllImages = `http://localhost:9100/imagehost/getallimages`
     const getAllImages = `https://image-host-je09.onrender.com/imagehost/getallimages`

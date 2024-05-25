@@ -4,7 +4,7 @@ import '../Home.css'
 
 const Home = () => {
 
-    const { productId } = useParams();
+    let { productId } = useParams();
     console.log("Product ID:", productId);  // Debugging line to check the productId
 
     const [isLoading, setIsLoading] = useState(false)
@@ -174,7 +174,7 @@ const Home = () => {
     // onMount
     useEffect(() => {
    
-        const displayAllImages = async (event) => {
+        const displayAllImages = async () => {
 
             setIsLoadingGetAll(true);
             setIsErrorGetAll(false);

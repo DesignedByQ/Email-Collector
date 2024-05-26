@@ -12,6 +12,7 @@ const Home = () => {
     const [isErrorGetAll, setIsErrorGetAll] = useState(false)
     const [isError, setIsError] = useState(false)
     const [isPostingError, setIsPostingError] = useState(false)
+    const [isProductIdError, setIsProductIdError] = useState(false)
     const [base64Image, setBase64Image] = useState("")  
     const [base64Images, setBase64Images] = useState([])
     const [emailAddress, setEmailAddress] = useState("")
@@ -41,11 +42,9 @@ const Home = () => {
                 if(!response.ok) {
 
                     setIsPostingError(true)
-                    console.error("Post reqest failed: " + response)
+                    console.error("Post request failed: " + response)
     
                 } else {
-
-                    
 
                     const statusCode = response.status
                     console.log(statusCode)
@@ -55,9 +54,40 @@ const Home = () => {
                     if (statusCode === 201) {
 
                         setSuccessMessage("Your email was submitted successfully!")
-                        
-                        //set this url to productURL which includes the aff link 
-                        setTimeout(() => window.location.href = "https://www.asos.com", 1500);
+
+                        const vendorProductPage = ""
+
+                        const getProductURL = `https://image-host-je09.onrender.com/imagehost/getproducturl/${productId}`
+
+                        try {
+
+                            const res = await fetch(getProductURL,{
+
+                                method: 'GET',
+                                headers: {'Access-Control-Allow-Origin': 'https://www.suavecollections.com',
+                                'Content-Type': 'application/json'},
+                            })
+
+                            if(!res.ok){
+
+                                setIsProductIdError(true)
+                                console.error("Get request failed: " + res)
+
+                            } else {
+
+                                vendorProductPage = res.json()
+
+                                //set this url to productURL which includes the aff link 
+                                setTimeout(() => window.location.href = vendorProductPage, 1500);
+
+                            }
+                            
+                        } catch(error){
+
+                            setIsProductIdError(true)
+                            console.error(error)
+
+                        }
 
                     }
 

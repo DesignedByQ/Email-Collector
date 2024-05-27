@@ -39,7 +39,7 @@ const Home = () => {
 
                     method: 'POST',
                     headers: {
-                        'Access-Control-Allow-Origin': 'http://localhost:4000', 
+                        //'Access-Control-Allow-Origin': 'http://localhost:4000', 
                         'Access-Control-Allow-Origin': 'https://www.suavecollections.com',
                         'Content-Type': 'application/json'
                     },
@@ -114,8 +114,8 @@ const Home = () => {
 
     }
 
-    const getImage = //`https://image-host-je09.onrender.com/imagehost/getimage/${productId}` 
-    `http://localhost:9100/imagehost/getimage/${productId}`
+    const getImage = `https://image-host-je09.onrender.com/imagehost/getimage/${productId}` 
+    //`http://localhost:9100/imagehost/getimage/${productId}`
 
     const renderImage = (base64String) => {
           
@@ -148,7 +148,7 @@ const Home = () => {
 
                     method: 'GET',
                     headers: {
-                        'Access-Control-Allow-Origin': 'http://localhost:4000',
+                        //'Access-Control-Allow-Origin': 'http://localhost:4000',
                         'Access-Control-Allow-Origin': 'https://www.suavecollections.com'
                     }
 

@@ -6,6 +6,9 @@ const Home = () => {
 
     let { productId } = useParams();
     console.log("Product ID:", productId);  // Debugging line to check the productId
+    console.log('Type:', typeof productId);
+
+    
 
     const [isLoading, setIsLoading] = useState(false)
     const [isLoadingGetAll, setIsLoadingGetAll] = useState(false)
@@ -22,15 +25,21 @@ const Home = () => {
 
     const postEmail = `http://localhost:9200/emailshost/saveemail`
 
-    const saveEmail = async () => {
+    const saveEmail = async (event) => {
+
+        event.preventDefault();
 
         try {
+
+            console.log("hello")
+
+            
 
                 const response = await fetch(postEmail,{
 
                     method: 'POST',
                     headers: {
-                        //'Access-Control-Allow-Origin': 'http://localhost:4000', 
+                        'Access-Control-Allow-Origin': 'http://localhost:4000', 
                         'Access-Control-Allow-Origin': 'https://www.suavecollections.com',
                         'Content-Type': 'application/json'
                     },
@@ -55,7 +64,7 @@ const Home = () => {
 
                         setSuccessMessage("Your email was submitted successfully!")
 
-                        const vendorProductPage = ""
+                        console.log("Product ID:", productId); 
 
                         const getProductURL = `https://image-host-je09.onrender.com/imagehost/getproducturl/${productId}`
 
@@ -75,10 +84,11 @@ const Home = () => {
 
                             } else {
 
-                                vendorProductPage = res.json()
-
-                                //set this url to productURL which includes the aff link 
-                                setTimeout(() => window.location.href = vendorProductPage, 1500);
+                                const vendorProductPage = await res.text(); // Directly await the response text
+                                console.log(vendorProductPage);
+                        
+                                // Redirect to the vendor product page
+                                window.location.href = 'https://'+vendorProductPage;
 
                             }
                             
@@ -88,6 +98,8 @@ const Home = () => {
                             console.error(error)
 
                         }
+
+                    
 
                     }
 
@@ -102,7 +114,8 @@ const Home = () => {
 
     }
 
-    const getImage = `https://image-host-je09.onrender.com/imagehost/getimage/${productId}` //`http://localhost:9100/imagehost/getimage/${productId}`
+    const getImage = //`https://image-host-je09.onrender.com/imagehost/getimage/${productId}` 
+    `http://localhost:9100/imagehost/getimage/${productId}`
 
     const renderImage = (base64String) => {
           
@@ -119,7 +132,7 @@ const Home = () => {
             console.error("Product ID is undefined");
             setIsError(true);
             return;
-        }
+        } 
         
         // Fetch the image based on the productId
         console.log("Fetching image for product ID:", productId);
@@ -135,7 +148,7 @@ const Home = () => {
 
                     method: 'GET',
                     headers: {
-                        //'Access-Control-Allow-Origin': 'http://localhost:4000'
+                        'Access-Control-Allow-Origin': 'http://localhost:4000',
                         'Access-Control-Allow-Origin': 'https://www.suavecollections.com'
                     }
 
@@ -168,8 +181,6 @@ const Home = () => {
         };
     
         getChosenImageFromDB();     
-
-        
 
     }, [productId]);
 
@@ -258,13 +269,18 @@ const Home = () => {
             </h1>
         </div>
 
+        <form onSubmit={saveEmail}>
         <div className="submitEmail">
             <input type="email" placeholder='Enter your email address' name="email" value={emailAddress} onChange={(e) => setEmailAddress(e.target.value)} />
         </div>
+                <button className="buttonDiv" type="submit">
+                    <h2>Submit</h2>
+                </button>
+            </form>
 
-        <div className="buttonDiv" type="button" onClick={saveEmail}>
-            <h2>Submit</h2>
-        </div>
+
+
+
 
         {successMessage && <span className="successMessage">{successMessage}</span>}
 
